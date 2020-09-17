@@ -8,7 +8,6 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Project Instructions:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Lab 1 group main project is to build an autonomous hardware delivery system mounted on
 a Rover-5 tank chassis and controlled by a Basys-3 FPGA development board. The rover will follow a
 metallic tape path (1 ¼ to 1 ½ in wide) and deliver hardware components to a delivery box based on
@@ -21,3 +20,4 @@ rover to pick up. The final station will have a box on the left side of the path
 the hardware. Each of the first 4 stations will have the hardware on top of a 4x4 post with the top of
 the post 5 inches from the ground. Be prepared for the rover to make multiple runs around the track
 with different deliver messages.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
