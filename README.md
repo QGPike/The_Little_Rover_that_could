@@ -3,7 +3,7 @@
  Project lab 1, Group 5
  
   ----------------------------------------- 
- - Quinn Pike, Ahmed Bayoumi, Jacob Gouldie-
+  Quinn Pike, Ahmed Bayoumi, Jacob Gouldie
   ----------------------------------------
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
