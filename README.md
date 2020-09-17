@@ -1,13 +1,14 @@
 # The_Little_Rover_that_could
  
- Project lab 1, Group 5
- 
-  ----------------------------------------- 
-  Quinn Pike, Ahmed Bayoumi, Jacob Gouldie
-  ----------------------------------------
+ Project lab 1, Group 5:
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Quinn Pike, Ahmed Bayoumi, Jacob Gouldie
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Project Instructions:
+----------------------------------------- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Lab 1 group main project is to build an autonomous hardware delivery system mounted on
 a Rover-5 tank chassis and controlled by a Basys-3 FPGA development board. The rover will follow a
 metallic tape path (1 ¼ to 1 ½ in wide) and deliver hardware components to a delivery box based on
