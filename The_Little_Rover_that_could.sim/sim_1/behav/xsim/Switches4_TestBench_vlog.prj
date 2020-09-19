@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../The_Little_Rover_that_could.srcs/sources_1/new/Switches4.v" \
+"../../../../The_Little_Rover_that_could.srcs/sim_1/new/Switches4_TestBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

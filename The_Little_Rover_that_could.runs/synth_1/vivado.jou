@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Sep 19 03:11:12 2020
+# Process ID: 22812
+# Current directory: D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.runs/synth_1
+# Command line: vivado.exe -log Seven_Seg_Mult.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Seven_Seg_Mult.tcl
+# Log file: D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.runs/synth_1/Seven_Seg_Mult.vds
+# Journal file: D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Seven_Seg_Mult.tcl -notrace
