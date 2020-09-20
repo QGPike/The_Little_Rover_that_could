@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1600503069">
-  <File Type="PA-TCL" Name="Seven_Seg_Mult.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Seven_Seg_Mult_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="Seven_Seg_Mult_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Seven_Seg_Mult.vds"/>
-  <File Type="RDS-UTIL" Name="Seven_Seg_Mult_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="Seven_Seg_Mult_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="Seven_Seg_Mult.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Seven_Seg_Mult_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Seven_Seg_Mult_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1600556347">
+  <File Type="PA-TCL" Name="Rover_Master.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Rover_Master_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Rover_Master_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Rover_Master.vds"/>
+  <File Type="RDS-UTIL" Name="Rover_Master_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Rover_Master_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Rover_Master.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Rover_Master_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Rover_Master_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Seven_Seg_Mult.v">
@@ -20,7 +20,27 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/Switches4.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Rover_Master.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/motor.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/pwm.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -28,7 +48,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Seven_Seg_Mult"/>
+      <Option Name="TopModule" Val="Rover_Master"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -37,10 +57,17 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="ScopedToCell" Val="Seven_Seg_Mult"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/new/Motor_XDC.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="ScopedToCell" Val="pwm"/>
       </FileInfo>
     </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/SevenSeg_XDC.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -51,9 +78,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

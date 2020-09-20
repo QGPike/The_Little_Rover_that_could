@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Seven_Seg_Mult.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Seven_Seg_Mult.tcl
+EAStep vivado -log Rover_Master.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Rover_Master.tcl

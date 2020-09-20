@@ -69,7 +69,7 @@ module Seven_Seg_Testbench(
     end
 
     always begin
-    #5 clock =~clock;
+    #5 clock =~ clock;
     end
 
 endmodule

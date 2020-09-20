@@ -2,3 +2,6 @@ Running: xsim.dir/Switches4_TestBench_behav/xsimk.exe -simmode gui -wdb Switches
 Design successfully loaded
 Design Loading Memory Usage: 5840 KB (Peak: 5840 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 6488 KB (Peak: 6488 KB)
+Simulation CPU Usage: 15 ms

@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../The_Little_Rover_that_could.srcs/sources_1/new/Seven_Seg_Mult.v" \
+"../../../../The_Little_Rover_that_could.srcs/sources_1/new/Switches4.v" \
+"../../../../The_Little_Rover_that_could.srcs/sources_1/new/pwm.v" \
+"../../../../The_Little_Rover_that_could.srcs/sources_1/new/Rover_Master.v" \
+"../../../../The_Little_Rover_that_could.srcs/sim_1/new/Seven_Seg_Testbench.v" \
+"../../../../The_Little_Rover_that_could.srcs/sim_1/new/Switches4_TestBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
