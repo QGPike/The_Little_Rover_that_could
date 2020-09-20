@@ -21,7 +21,7 @@
 
 
 module Seven_Seg_Mult(
- input clk, reset, OL1, OL2 // comparator sends active high when OL, connected to ports 9&10 on JA
+ input clk, reset, //OL1, OL2, // comparator sends active high when OL, connected to ports 9&10 on JA
 input [3:0] in0, in1, in2, in3,  //the 4 inputs for each display
 output a, b, c, d, e, f, g, dp, //the individual LED output for the seven segment along with the digital point
 output [3:0] an   // the 4 bit enable signal
