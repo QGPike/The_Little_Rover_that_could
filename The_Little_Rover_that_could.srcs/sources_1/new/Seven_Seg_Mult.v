@@ -65,12 +65,12 @@ always @ (posedge clk)
    2'b01:  //When the 2 MSB's are 01 enable the third display
    begin
       if (reset_reg == 1) begin 
-       sseg = 4'd10;
+       sseg = 4'd13;
        reset_reg = (sw0) ? 1 : 0;
       end
       else if (reset_reg == 0) begin
           if (JA9 || JA10) begin
-          sseg = 4'd10;
+          sseg = 4'd13;
           reset_reg = 1;
           end
           else begin
@@ -85,12 +85,12 @@ always @ (posedge clk)
    2'b10:  //When the 2 MSB's are 10 enable the second display
     begin
       if (reset_reg == 1) begin 
-       sseg = 4'd0;
+       sseg = 4'd13;
        reset_reg = (sw0) ? 1 : 0;
       end
       else if (reset_reg == 0) begin
           if (JA9 || JA10) begin
-          sseg = 4'd0;
+          sseg = 4'd13;
           reset_reg = 1;
           end
           else begin
