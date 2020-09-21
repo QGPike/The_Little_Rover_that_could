@@ -18,7 +18,7 @@
 
 
 module Seven_Seg_Mult(
-input clk, reset, JA9, JA10, // comparator sends active high when OL, connected to ports 9&10 on JA
+input clk, sw0, JA9, JA10, // comparator sends active high when OL, connected to ports 9&10 on JA
 // input [3:0] in0, in1, in2, in3,  //the 4 inputs for each display
 output a, b, c, d, e, f, g, dp, //the individual LED output for the seven segment along with the digital point
 output [3:0] an   // the 4 bit enable signal
@@ -28,9 +28,9 @@ localparam N = 18;
 
 reg [N-1:0]count; //the 18 bit counter which allows us to multiplex at 1000Hz
 
-always @ (posedge clk or posedge reset)
+always @ (posedge clk or posedge sw0)
  begin
-  if (reset)
+  if (!sw0)
    count <= 0;
   else
    count <= count + 1;
@@ -56,20 +56,17 @@ always @ (posedge clk)
    //Third Digit//
    2'b01:  //When the 2 MSB's are 01 enable the third display
     begin
-     if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
+      if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
        sseg = 4'd10; //L
        reset_reg = 1;
-     end
-     else begin
-          if (reset_reg == 1) begin
-            sseg = 4'd10; //L
-            reset_reg = !(reset);
-          end
-          else begin
+      end
+      else begin
+          reset_reg = reset_reg;
+      end
+        if (!sw0) begin
+            reset_reg = 0;
             sseg = 4'd11;
-            reset_reg = reset_reg;
-          end
-      end 
+        end
      an_temp = 4'b1101;
     end
    
@@ -81,17 +78,13 @@ always @ (posedge clk)
        reset_reg = 1;
       end
       else begin
-          if (reset_reg == 0) begin
-            sseg = 4'd11;
-          end
-          else if (reset_reg == 1) begin
-            if ((!JA9 && !JA10) && reset) begin
-              sseg = 4'd11;
-              reset_reg = 0;
-            end
-          end
+          reset_reg = reset_reg;
       end
-      an_temp = 4'b1011;
+      if (!sw0) begin
+            reset_reg = 0;
+            sseg = 4'd11;
+      end
+     an_temp = 4'b1011;
     end
     
     //First Digit//
