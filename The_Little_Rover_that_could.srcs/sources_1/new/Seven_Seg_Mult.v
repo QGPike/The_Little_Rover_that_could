@@ -56,7 +56,12 @@ always @ (posedge clk)
    //Third Digit//
    2'b01:  //When the 2 MSB's are 01 enable the third display
     begin
-     if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
+    if  ((JA9 || JA10) && reset) begin
+     reset_reg = 0;
+     sseg = 4'd11;
+    end
+
+    else if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
        sseg = 4'd10; //L
        reset_reg = 1;
      end
@@ -71,10 +76,10 @@ always @ (posedge clk)
             // reset_reg = !(reset);
             // end
           end
-          else begin
-            sseg = 4'd11; // -
-            reset_reg = reset_reg;
-          end
+          // else begin
+          //   // sseg = 4'd11; // -
+          //   //reset_reg = reset_reg;
+          // end
       end
       // if (reset_reg == 0) begin //New lines to test
       //   sseg = 4'd11; // -
@@ -85,13 +90,17 @@ always @ (posedge clk)
    //Second Digit//
    2'b10:  //When the 2 MSB's are 10 enable the second display
     begin
-      if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
+      if  ((JA9 || JA10) && reset) begin
+       reset_reg = 0;
+       sseg = 4'd11;
+      end
+      else if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
        sseg = 4'd0; //0
        reset_reg = 1;
       end
       else begin
           if (reset_reg == 1) begin
-            if (reset) begin
+            if (reset == 1) begin
               reset_reg = 0;
               sseg = 4'd11; // -
             end
@@ -100,10 +109,10 @@ always @ (posedge clk)
             // reset_reg = !(reset);
             // end
           end
-          else begin
-            sseg = 4'd11; // -
-            reset_reg = reset_reg;
-          end
+          // else begin
+          //   // sseg = 4'd11; // -
+          //   //reset_reg = reset_reg;
+          // end
       end
       // if (reset_reg == 0) begin //New lines to test
       //   sseg = 4'd11; // -
