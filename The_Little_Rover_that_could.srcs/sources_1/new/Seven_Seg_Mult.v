@@ -63,45 +63,47 @@ always @ (posedge clk)
    
    //Third Digit//
    2'b01:  //When the 2 MSB's are 01 enable the third display
-    begin
-      if (!JA9 && !JA10 && !sw0) begin //Switches the displayed character when OL is sent from Comparator
-       sseg = 4'd10; //L
-       reset_reg = 0;
+   begin
+      if (reset_reg == 1) begin 
+       sseg = 4'd10;
+       reset_reg = (sw0) ? 1 : 0;
       end
-      else if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
-       sseg = 4'd10; //L
-       reset_reg = 1;
+      else if (reset_reg == 0) begin
+          if (JA9 || JA10) begin
+          sseg = 4'd10;
+          reset_reg = 1;
+          end
+          else begin
+          sseg = 4'd13;
+          reset_reg = 0;
+          end
       end
-      else begin
-          reset_reg = reset_reg;
-      end
-        if (!sw0) begin
-            reset_reg = 0;
-            sseg = 4'd13;
-        end
      an_temp = 4'b1101;
     end
 
    //Second Digit//
    2'b10:  //When the 2 MSB's are 10 enable the second display
     begin
-      if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
-       sseg = 4'd0; //0
-       reset_reg = 1;
+      if (reset_reg == 1) begin 
+       sseg = 4'd0;
+       reset_reg = (sw0) ? 1 : 0;
       end
-      else begin
-          reset_reg = reset_reg;
-      end
-      if (!sw0) begin
-            reset_reg = 0;
-            sseg = 4'd13;
+      else if (reset_reg == 0) begin
+          if (JA9 || JA10) begin
+          sseg = 4'd0;
+          reset_reg = 1;
+          end
+          else begin
+          sseg = 4'd13;
+          reset_reg = 0;
+          end
       end
      an_temp = 4'b1011;
     end
     
     //First Digit//
    2'b11:  //When the 2 MSB's are 11 enable the first display
-    begin
+   begin
     if (sw2 && sw0) begin
       sseg = 4'd12;
     end
@@ -112,7 +114,7 @@ always @ (posedge clk)
       sseg = 4'd13;
     end
      an_temp = 4'b0111;
-    end
+   end
   endcase
  end
 assign an = an_temp;
