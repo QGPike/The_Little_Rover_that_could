@@ -4,6 +4,7 @@ Running: D:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 1ab2ba1c5a
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 4 differs from formal bit length 1 for port 'b1' [D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sim_1/new/Seven_Seg_Testbench.v:31]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

@@ -1,0 +1,7 @@
+Running: xsim.dir/Rover_Master_behav/xsimk.exe -simmode gui -wdb Rover_Master_behav.wdb -simrunnum 0 -socket 51150
+Design successfully loaded
+Design Loading Memory Usage: 5848 KB (Peak: 5848 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 6460 KB (Peak: 6460 KB)
+Simulation CPU Usage: 0 ms

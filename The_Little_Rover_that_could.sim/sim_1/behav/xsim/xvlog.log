@@ -1,8 +1,14 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/Seven_Seg_Mult.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Seven_Seg_Mult
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/pwm.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module pwm
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/Switches4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Switches4
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/Rover_Master.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Rover_Master
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/motor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module motor
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sources_1/new/pwm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sim_1/new/Seven_Seg_Testbench.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Seven_Seg_Testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx/Projects/The_Little_Rover_that_could/The_Little_Rover_that_could.srcs/sim_1/new/Switches4_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Switches4_TestBench

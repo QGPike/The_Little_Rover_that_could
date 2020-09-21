@@ -23,12 +23,12 @@
 module Seven_Seg_Testbench(
     );
 
-    reg clock, reset;
+    reg clock, reset, b1;
     reg [3:0] in0, in1, in2, in3;  //the 4 inputs for each display
     wire a, b, c, d, e, f, g, dp; //the individual LED output for the seven segment along with the digital point
     wire [3:0] an;   // the 4 bit enable signal
 
-    Seven_Seg_Mult UUT (clock, reset, in0, in1, in2, in3, a, b, c, d, e, f, g, dp, an);
+    Seven_Seg_Mult UUT (clock, reset, in0, in1, in2, in3, b1, a, b, c, d, e, f, g, dp, an);
 
     initial begin
         clock = 0;
@@ -40,31 +40,8 @@ module Seven_Seg_Testbench(
 
         #100;
 
-        in0 = 2;
-        in1 = 0;
-        in2 = 0;
-        in3 = 0;
+        b1 = 1;
 
-        #100;
-
-        in0 = 0;
-        in1 = 9;
-        in2 = 0;
-        in3 = 0;
-
-        #100;
-
-        in0 = 0;
-        in1 = 0;
-        in2 = 0;
-        in3 = 7;
-
-        #100;
-
-        in0 = 1;
-        in1 = 2;
-        in2 = 3;
-        in3 = 4;
 
     end
 
