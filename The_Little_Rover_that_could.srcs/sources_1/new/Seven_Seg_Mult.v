@@ -18,7 +18,7 @@
 
 
 module Seven_Seg_Mult(
-input clk, sw0, JA9, JA10, // comparator sends active high when OL, connected to ports 9&10 on JA
+input clk, sw0, sw1, sw2, JA9, JA10, // comparator sends active high when OL, connected to ports 9&10 on JA
 // input [3:0] in0, in1, in2, in3,  //the 4 inputs for each display
 output a, b, c, d, e, f, g, dp, //the individual LED output for the seven segment along with the digital point
 output [3:0] an   // the 4 bit enable signal
@@ -49,14 +49,26 @@ always @ (posedge clk)
    //Fourth Digit//
    2'b00 :  //When the 2 MSB's are 00 enable the fourth display
     begin
-     sseg = 4'd11;
+    if (sw1 && sw0) begin
+      sseg = 4'd12;
+    end
+    else if (!sw1 && sw0) begin
+      sseg = 4'd11;
+    end
+    else begin
+      sseg = 4'd13;
+    end
      an_temp = 4'b1110;
     end
    
    //Third Digit//
    2'b01:  //When the 2 MSB's are 01 enable the third display
     begin
-      if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
+      if (!JA9 && !JA10 && !sw0) begin //Switches the displayed character when OL is sent from Comparator
+       sseg = 4'd10; //L
+       reset_reg = 0;
+      end
+      else if (JA9 || JA10) begin //Switches the displayed character when OL is sent from Comparator
        sseg = 4'd10; //L
        reset_reg = 1;
       end
@@ -65,11 +77,11 @@ always @ (posedge clk)
       end
         if (!sw0) begin
             reset_reg = 0;
-            sseg = 4'd11;
+            sseg = 4'd13;
         end
      an_temp = 4'b1101;
     end
-   
+
    //Second Digit//
    2'b10:  //When the 2 MSB's are 10 enable the second display
     begin
@@ -82,7 +94,7 @@ always @ (posedge clk)
       end
       if (!sw0) begin
             reset_reg = 0;
-            sseg = 4'd11;
+            sseg = 4'd13;
       end
      an_temp = 4'b1011;
     end
@@ -90,7 +102,15 @@ always @ (posedge clk)
     //First Digit//
    2'b11:  //When the 2 MSB's are 11 enable the first display
     begin
-     sseg = 4'd11;
+    if (sw2 && sw0) begin
+      sseg = 4'd12;
+    end
+    else if (!sw2 && sw0) begin
+      sseg = 4'd11;
+    end
+    else begin
+      sseg = 4'd13;
+    end
      an_temp = 4'b0111;
     end
   endcase
@@ -114,9 +134,22 @@ always @ (*)
    4'd8 : sseg_temp = 7'b0000000; //to display 8
    4'd9 : sseg_temp = 7'b0010000; //to display 9
    4'd10 : sseg_temp = 7'b1000111; //to display L
+   4'd11 : sseg_temp = 7'b0000011; //to display b
+   4'd12 : sseg_temp = 7'b0001110; //to display F
    default : sseg_temp = 7'b0111111; //dash
   endcase
  end
+
+//  casex(SW_direction)
+//         //Corresponding IN: 4321    //motor direction permutations ([motorB],[motorA]:
+//             3'bxx0: IN = 4'b0000;   // off (no movement)
+//             3'b001: IN = 4'b0110;   // back,back
+//             3'b011: IN = 4'b0101;   // back,front
+//             3'b101: IN = 4'b1010;   // front,back
+//             3'b111: IN = 4'b1001;   // front,front
+//             default: IN = 4'b0000;
+//         endcase
+
 assign {g, f, e, d, c, b, a} = sseg_temp; //concatenate the outputs to the register, this is just a more neat way of doing this.
 // I could have done in the case statement: 4'd0 : {g, f, e, d, c, b, a} = 7'b1000000; 
 // its the same thing.. write however you like it

@@ -48,7 +48,7 @@ module basys3( CLK100MHZ, sw, JA9, JA10, btnC, JA, LED, LED14, LED15, seg, an, d
     .reset_button(btnC), .SW_direction(sw[2:0]), .SW_duty(sw[5:3]), .IN(JA[3:0]),
     .ENA(JA[4]), .ENB(JA[5]) );
 
-    Seven_Seg_Mult SevSeg(.clk(CLK100MHZ), .sw0(sw[0]), .JA9(JA9), .JA10(JA10),
+    Seven_Seg_Mult SevSeg(.clk(CLK100MHZ), .sw0(sw[0]), .sw1(sw[1]), .sw2(sw[2]), .JA9(JA9), .JA10(JA10),
     .a(seg[0]), .b(seg[1]), .c(seg[2]), .d(seg[3]), .e(seg[4]), .f(seg[5]), 
     .g(seg[6]), .an(an[3:0]), .dp(dp));
 
