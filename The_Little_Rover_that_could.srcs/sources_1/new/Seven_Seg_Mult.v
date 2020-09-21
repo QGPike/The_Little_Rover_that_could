@@ -38,7 +38,7 @@ always @ (posedge clk or posedge reset)
 
 reg [6:0]sseg; //the 7 bit register to hold the data to output
 reg [3:0]an_temp; //register for the 4 bit enable
-reg reset_reg;
+reg reset_reg = 0;
 // assign off = reset_reg;
 
 
@@ -49,7 +49,7 @@ always @ (posedge clk)
    //Fourth Digit//
    2'b00 :  //When the 2 MSB's are 00 enable the fourth display
     begin
-     sseg = 4'd11;
+     sseg = 4'd11; // -
      an_temp = 4'b1110;
     end
    
@@ -62,14 +62,23 @@ always @ (posedge clk)
      end
      else begin
           if (reset_reg == 1) begin
-            sseg = 4'd10; //L
-            reset_reg = !(reset);
+            if (reset) begin
+              reset_reg = 0;
+              sseg = 4'd11; // -
+            end
+            // else begin
+            // sseg = 4'd10; //L
+            // reset_reg = !(reset);
+            // end
           end
           else begin
-            sseg = 4'd11;
+            sseg = 4'd11; // -
             reset_reg = reset_reg;
           end
-      end 
+      end
+      // if (reset_reg == 0) begin //New lines to test
+      //   sseg = 4'd11; // -
+      // end 
      an_temp = 4'b1101;
     end
    
@@ -82,21 +91,30 @@ always @ (posedge clk)
       end
       else begin
           if (reset_reg == 1) begin
-            sseg = 4'd0; //0
-            reset_reg = !(reset);
+            if (reset) begin
+              reset_reg = 0;
+              sseg = 4'd11; // -
+            end
+            // else begin
+            // sseg = 4'd10; //L
+            // reset_reg = !(reset);
+            // end
           end
           else begin
-             sseg = 4'd11;
+            sseg = 4'd11; // -
             reset_reg = reset_reg;
           end
       end
+      // if (reset_reg == 0) begin //New lines to test
+      //   sseg = 4'd11; // -
+      // end 
      an_temp = 4'b1011;
     end
     
     //First Digit//
    2'b11:  //When the 2 MSB's are 11 enable the first display
     begin
-     sseg = 4'd11;
+     sseg = 4'd11; // -
      an_temp = 4'b0111;
     end
   endcase
